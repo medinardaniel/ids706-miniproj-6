@@ -4,25 +4,19 @@
 ![ccid workflow](https://github.com/medinardaniel/ids706-miniproj-5/actions/workflows/cicd.yml/badge.svg)
 
 ## Project Description
-In this project, I created a SQLite database using a HateCrimes CSV file obtained from https://github.com/emorisse/FBI-Hate-Crime-Statistics/blob/master/2013/table13.csv.
+In this project, I created a MySQL database hosted in Azure. I obtained soccer league data in the form of csv files
+from GitHub to then connect to the Azure database server and create two tables. I apply a complex SQL query to get
+the total number of yellow cards among teams from the English Premier League and Spanish League in the 2018-2019
+season.
 
-I perform the following tasks:
-* [E] Extract a dataset from a URL.
-* [T] Transform the data by cleaning, filtering, enriching, etc to get it ready for analysis.
-* [L] Load the transformed data into a SQLite database table using Python's sqlite3 module.
-* [Q] Write and execute SQL queries on the SQLite database to analyze and retrieve insights from the data.
+## Explanation of the SQL query
 
-For the query [Q] portion, I perform the following queries:
-* [C] Create a new row in the dataset for Durham, North Carolaina
-* [R] Read the last five rows of the dataset
-* [U] Update the population for the Durham, North Carolina created record 
-* [D] Delete the Durham, North Carolina created record
+This SQL query is retrieving the top 10 teams with the highest number of home yellow cards from the laliga and epl tables. Here's a step-by-step explanation of what the query is doing:
 
-In addition, I made main.py a command line tool using Python Fire. The tool can run the following commands:
-* [r] Read the top 5 rows
-* [c] Create a new record
-* [u] Update the newly created record
-* [d] Delete the newly created record
-
-In the test_main.py file, I ensure that my script can succesfully create and delete a record.
+The query starts by selecting the HomeTeam column and the sum of the home_yellow_cards column from a subquery called all_teams.
+The all_teams subquery is created by combining the HomeTeam and home_yellow_cards columns from the laliga and epl tables using the UNION ALL clause. This creates a single table that contains all the home teams and their corresponding yellow cards from both leagues.
+The GROUP BY clause groups the results by the HomeTeam column, so that the sum of the yellow cards is calculated for each team.
+The ORDER BY clause sorts the results in descending order based on the total number of home yellow cards.
+The LIMIT clause limits the results to the top 10 teams with the highest number of home yellow cards.
+In summary, this query retrieves the top 10 teams with the highest number of home yellow cards by combining the laliga and epl tables, grouping the results by team, and sorting the results by the total number of home yellow cards.
 
