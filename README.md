@@ -1,4 +1,4 @@
-# IDS Mini Project 5: CRUD Operations with SQLite
+# IDS Mini Project 6: Complex MySQL Query
 
 #### By Daniel Medina
 ![ccid workflow](https://github.com/medinardaniel/ids706-miniproj-5/actions/workflows/cicd.yml/badge.svg)
