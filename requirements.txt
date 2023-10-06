@@ -10,3 +10,8 @@ ruff==0.0.284
 pandas==2.0.3
 #cli
 python-fire==0.1.0
+# add necessary databricks req
+pandas
+python-dotenv
+databricks-sql-connector
+pyodbc
